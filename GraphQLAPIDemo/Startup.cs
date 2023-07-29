@@ -48,7 +48,9 @@ namespace GraphQLAPIDemo
             {
                 mc.AddProfile(new EmployeeMapping());
                 mc.AddProfile(new DepartmentMapping());
+                mc.AddProfile(new AddressMapping());
                 mc.AddProfile(new EmployeeInputMapping());
+
             });
 
             IMapper mapper = mapperConfig.CreateMapper();

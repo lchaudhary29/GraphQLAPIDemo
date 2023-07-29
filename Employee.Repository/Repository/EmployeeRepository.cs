@@ -24,13 +24,15 @@ namespace Employee.Repository.Repository
 
         public List<EmployeeDomain> GetAll()
         {
-            return context.Employee.ToList();
+            return context.Employee.Include(x => x.Address).ToList();
         }
 
         public async Task<EmployeeDomain> Create(EmployeeDomain employee)
         {
             employee.Id = Guid.NewGuid();
-            context.Add(employee);
+            await context.AddAsync(employee);
+            employee.Address.ForEach((address) => address.Id = Guid.NewGuid());
+            await context.AddRangeAsync(employee.Address);
             await context.SaveChangesAsync();
             return employee;
         }

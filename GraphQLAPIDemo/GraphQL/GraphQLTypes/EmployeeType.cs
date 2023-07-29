@@ -15,6 +15,7 @@ namespace GraphQLAPIDemo.GraphQL.GraphQLTypes
             Field(e => e.Dob, type: typeof(DateGraphType)).Description("Employee Dob");
             Field(e => e.IsActive, type: typeof(BooleanGraphType)).Description("Employee Active");
             Field(e => e.DepartmentId, type: typeof(DepartmentTypeEnumType)).Description("DepartmentId");
+            Field(e => e.Address, type: typeof(ListGraphType<AddressType>)).Description("Addresses");
             //Field<DepartmentType>("department", resolve: (context) => departmentService.Get(context.Source.DepartmentType));
         }
     }

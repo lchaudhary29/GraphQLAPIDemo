@@ -13,6 +13,7 @@ namespace Employee.Services.Mapping
             //CreateMap<EntityDomain, EntityDto>();
 
             CreateMap<EmployeeDomain, EmployeeDto>()
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
                 //.IncludeBase<EntityDomain, EntityDto>()
                 .AfterMap((domain, dto) =>
                 {

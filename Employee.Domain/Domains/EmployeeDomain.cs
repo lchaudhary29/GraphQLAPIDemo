@@ -1,5 +1,7 @@
 ﻿using Employee.Domain.Domains.Common;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Employee.Domain.Domains
 {
@@ -12,5 +14,6 @@ namespace Employee.Domain.Domains
         public bool IsActive { get; set; }
         public int DepartmentId { get; set; }
 
+        public List<AddressDomain> Address { get; set; }
     }
 }
